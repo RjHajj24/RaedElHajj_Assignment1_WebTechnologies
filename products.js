@@ -1,4 +1,4 @@
-const products = [
+const productsArray = [
     ['UCLan Hoodie','Dark Blue','cotton authentic character and practicality are combined in this comfy warm and luxury hoodie for students that goes with everything to create casual looks',' Only £39.99','images/items/hoodies/hoodie (1).jpg'],
     ['UCLan Hoodie','Light Blue','cotton authentic character and practicality are combined in this comfy warm and luxury hoodie for students that goes with everything to create casual looks',' Only £39.99','images/items/hoodies/hoodie (2).jpg'],
     ['UCLan Hoodie','Dark Green','cotton authentic character and practicality are combined in this comfy warm and luxury hoodie for students that goes with everything to create casual looks',' Only £39.99','images/items/hoodies/hoodie (3).jpg'],
@@ -111,13 +111,29 @@ const products = [
 ];
 
 let i = 0;
-while (products.length) {
+while (productsArray.length) {
     const productElement = document.getElementById("product");
-    const nameOfProduct = products[i][0];
-    const colorOfProduct = products[i][1];
-    const materialOfProduct = products[i][2];
-    const priceOfProduct = products[i][3];
-    const imageOfProduct = products[i][4];
-    productElement.innerHTML += "<div class='pro'>" + "<img alt='Product Image' src='" + imageOfProduct + "'/>" + "<div>" + "<span>" + nameOfProduct + "</span>" + "<h5>" + colorOfProduct + "</h5>" + "<p>" + materialOfProduct + "</p>" +"<h4>" + priceOfProduct + "</h4>" + "</div>" + "</div>";
+    const nameOfProduct = productsArray[i][0];
+    const colorOfProduct = productsArray[i][1];
+    const materialOfProduct = productsArray[i][2];
+    const priceOfProduct = productsArray[i][3];
+    const imageOfProduct = productsArray[i][4];
+    productElement.innerHTML += "<div class='pro'>" + "<img alt='Product Image' src='" + imageOfProduct + "'/>" + "<div>" + "<span>" + nameOfProduct + "</span>" + "<h5>" + colorOfProduct + "</h5>" + "<p>" + materialOfProduct + "</p>" +"<h4 class='priceOfProduct'>" + priceOfProduct + "</h4>" + "</div>" +  "<button class='productButtons' onclick='viewDetails("+i+")'>View Product</button>" + "<button class='productButtons' onclick='addToCart("+i+")'>Add to cart</button>" + "</div>";
         i++;
+}
+
+function viewDetails(index) {
+    sessionStorage.selected = JSON.stringify(productsArray[index]);
+    window.location.href = "item.html";
+}
+
+function addToCart(index) {
+    var storedCart;
+    if (localStorage.cart) {
+        storedCart = JSON.parse(localStorage.cart);
+    } else {
+        storedCart = Array();
+    }
+    storedCart.push(productsArray[index]);
+    localStorage.cart = JSON.stringify(storedCart);
 }

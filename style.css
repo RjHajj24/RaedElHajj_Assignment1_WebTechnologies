@@ -164,7 +164,31 @@ footer {
 #product .pro img{
     width: 100%;
     border-radius: 20px;
+}
 
+.priceOfProduct{
+    margin-bottom: 8px;
+}
+
+.productButtons{
+    padding: 5px;
+    margin: 2px;
+}
+
+#cartHeader{
+    margin: 20px 0;
+    text-align: center;
+    color: orange;
+}
+
+.cartProductImage{
+    width: 60px;
+    height: 60px;
+}
+
+#cartButtons{
+    padding: 2px;
+    margin: 2px;
 }
 
 /* media query */
