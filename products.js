@@ -112,7 +112,7 @@ const productsArray = [
 
 let i = 0;
 while (productsArray.length) {
-    const productElement = document.getElementById("product");
+    const productElement = document.getElementById("pro-container");
     const nameOfProduct = productsArray[i][0];
     const colorOfProduct = productsArray[i][1];
     const materialOfProduct = productsArray[i][2];

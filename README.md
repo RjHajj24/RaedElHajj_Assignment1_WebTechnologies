@@ -2,4 +2,4 @@
 
 Preferred browser for testing: Opera
 
-I completed 
+I completed until the basic cart implementation.
